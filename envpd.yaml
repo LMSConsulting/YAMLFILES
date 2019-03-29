@@ -8,7 +8,7 @@ pdsetup:
  serversoft: /binaries/pingdirectory
  ldiffilename: "foraws.ldif"
  destinationname: PingDirectory
- pd1: PingDirectory
+ pd1: PingDirectory1
  pd2: PingDirectory2
 
 rep:
