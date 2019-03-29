@@ -2,7 +2,7 @@ pdsetup:
  zipfile: PingDirectory-7.2.0.0.zip
  clientsoft: /likeminds/softwares
  clientprog: /likeminds/programfiles
- folder: PingDirectory-7.2.0.0
+ folder: PingDirectory
  file: pingdirectory
  srcfile: /root/ansible/softwares/pingdirectory/pingdirectory.zip
  serversoft: /binaries/pingdirectory
