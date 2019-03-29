@@ -8,8 +8,8 @@
     copy:
        src: "{{ pdsetup.serversoft }}"
        dest: "{{ pdsetup.clientsoft }}"
-  - name: Unzipping Ping Directory
-    shell: cd {{ pdsetup.clientsoft }}/pingdirectory ; unzip {{ pdsetup.zipfile }} ; 
+# - name: Unzipping Ping Directory
+#  shell: cd {{ pdsetup.clientsoft }}/pingdirectory ; unzip {{ pdsetup.zipfile }} ; 
 
   - name: Changing the Ping Directory folder name
     shell: mv {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.folder }} {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.pd1 }} ;
