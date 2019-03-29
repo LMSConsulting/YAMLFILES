@@ -9,11 +9,10 @@
        src: "{{ pdsetup.serversoft }}"
        dest: "{{ pdsetup.clientsoft }}"
   - name: Unzipping Ping Directory
-    shell: cd {{ pdsetup.clientsoft }} ; unzip {{ pdsetup.zipfile }} ; 
+    shell: cd {{ pdsetup.clientsoft }}/pingdirectory ; unzip {{ pdsetup.zipfile }} ; 
 
   - name: Changing the Ping Directory folder name
-    shell: mv {{ pdsetup.clientsoft }}/{{ pdsetup.folder }} {{ pdsetup.clientsoft }}/{{ pdsetup.pd1 }} ;
-  
+    shell: mv {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.folder }} {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.pd1 }} ;
   - name: Moving the Ping Directory
     shell: mv {{ pdsetup.clientsoft }}/{{ pdsetup.pd1 }} {{ pdsetup.clientprog }}/ ;
     become: yes
