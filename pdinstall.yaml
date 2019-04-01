@@ -8,15 +8,20 @@
     copy:
        src: "{{ pdsetup.serversoft }}"
        dest: "{{ pdsetup.clientsoft }}"
-# - name: Unzipping Ping Directory
-#  shell: cd {{ pdsetup.clientsoft }}/pingdirectory ; unzip {{ pdsetup.zipfile }} ; 
+  - name: Unzipping Ping Directory
+    shell: cd {{ pdsetup.clientsoft }}/pingdirectory ; unzip {{ pdsetup.zipfile }} ; 
 
-#  - name: Changing the Ping Directory folder name
-#   shell: mv {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.folder }} {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.pd1 }} ;
-#  - name: Moving the Ping Directory
-#   shell: mv {{ pdsetup.clientsoft }}/pingdirectory/{{ pdsetup.pd1 }} {{ pdsetup.clientprog }}/ ;
+  - name: Changing the Ping Directory folder name
+    shell: mv {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.folder }} {{ pdsetup.clientsoft }}/{{pdsetup.file}}/{{ pdsetup.pd1 }} ;
+  - name: copying the Ping Directory
+    shell: cp -rf {{ pdsetup.clientsoft }}/pingdirectory/{{ pdsetup.pd1 }} {{ pdsetup.clientprog }}/ ;
     become: yes
-    become_method: sudo 
+    become_method: sudo
+ 
+  - name: Copying License file
+    copy:
+       src: "{{ pdsetup.serversoft }}/PingDirectory.lic"
+       dest: "{{ pdsetup.clientprog }}/{{ pdsetup.pd1 }}"
 
   - name: Setup the PingDirectory 1
     shell: cd {{ pdsetup.clientprog }}/{{ pdsetup.pd1 }}/ ; ./setup --acceptLicense --no-prompt --script-friendly --licenseKeyFile /likeminds/programfiles/PingDirectory1/PingDirectory.lic --localHostName {{ pd1.hostname }} --instanceName ds1 --location {{ pd1.location }} --ldapPort {{ pd1.ldapport }} --ldapsPort {{ pd1.ldapsport }} --httpsPort {{ pd1.httpsport }} --rootUserDN {{ pd1.userdn }} --rootUserPassword {{ pd1.password }} --maxHeapSize 512m --enableStartTLS --generateSelfSignedCertificate --baseDN {{ pd1.basedn }} --addBaseEntry ;
