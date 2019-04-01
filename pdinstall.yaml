@@ -19,7 +19,7 @@
     become_method: sudo 
 
   - name: Setup the PingDirectory 1
-    shell: cd {{ pdsetup.clientprog }}/{{ pdsetup.pd1 }}/ ; ./setup --acceptLicense --no-prompt --script-friendly    --localHostName {{ rep.pd1.hostname }}    --ldapPort {{ rep.pd1.ldapport }}    --ldapsPort {{ rep.pd1.ldapsport }}    --httpsPort {{ rep.pd1.httpsport }}    --rootUserDN {{ rep.pd1.userdn }}    --rootUserPassword {{ rep.pd1.password }}    --maxHeapSize 512m    --enableStartTLS    --generateSelfSignedCertificate    --baseDN {{ rep.pd1.basedn }}    --addBaseEntry ;
+    shell: cd {{ pdsetup.clientprog }}/{{ pdsetup.pd1 }}/ ; ./setup --acceptLicense --no-prompt --script-friendly --licenseKeyFile /likeminds/programfiles/PingDirectory1/PingDirectory.lic   --localHostName {{ rep.pd1.hostname }}    --ldapPort {{ rep.pd1.ldapport }}    --ldapsPort {{ rep.pd1.ldapsport }}    --httpsPort {{ rep.pd1.httpsport }}    --rootUserDN {{ rep.pd1.userdn }}    --rootUserPassword {{ rep.pd1.password }}    --maxHeapSize 512m    --enableStartTLS    --generateSelfSignedCertificate    --baseDN {{ rep.pd1.basedn }}    --addBaseEntry ;
 
   - name: Restart the PingDirectory 1
     shell: cd {{ pdsetup.clientprog }}/{{ pdsetup.pd1 }}/bin ; nohup ./stop-ds -R &
