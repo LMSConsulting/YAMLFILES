@@ -9,9 +9,7 @@ pdsetup:
  ldiffilename: "foraws.ldif"
  destinationname: PingDirectory
  pd1: PingDirectory1
- pd2: PingDirectory2
 
-rep:
  pd1:
   name: "ping_directory"
   hostname: "ec2-54-255-220-227.ap-southeast-1.compute.amazonaws.com"
@@ -26,6 +24,4 @@ rep:
   admin: "admin"
   adminpassword: "PingDirectory2"
   type: "ping-identity-ds"
-  syncuser: "cn=Administrator,cn=Users,dc=likemindscloud,dc=com"
-  syncuserpassword: "Admin123"
  
