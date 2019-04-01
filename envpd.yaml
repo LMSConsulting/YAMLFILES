@@ -10,18 +10,18 @@ pdsetup:
  destinationname: PingDirectory
  pd1: PingDirectory1
 
- pd1:
-  name: "ping_directory"
-  hostname: "ec2-54-255-220-227.ap-southeast-1.compute.amazonaws.com"
-  ldapport: "1389"
-  ldapsport: "1636"
-  httpsport: "1443"
-  replicateport: "18989"
-  userdn: "cn=dmanager"
-  password: "PingDirectory2"
-  basedn: "DC=likemindscloud,DC=com"
-  location: "Mumbai"
-  admin: "admin"
-  adminpassword: "PingDirectory2"
-  type: "ping-identity-ds"
+pd1:
+ name: "ping_directory"
+ hostname: "ec2-54-255-220-227.ap-southeast-1.compute.amazonaws.com"
+ ldapport: "1389"
+ ldapsport: "1636"
+ httpsport: "1443"
+ replicateport: "18989"
+ userdn: "cn=dmanager"
+ password: "PingDirectory2"
+ basedn: "DC=likemindscloud,DC=com"
+ location: "Mumbai"
+ admin: "admin"
+ adminpassword: "PingDirectory2"
+ type: "ping-identity-ds"
  
